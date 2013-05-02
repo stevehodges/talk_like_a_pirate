@@ -1,0 +1,109 @@
+locale: "arr"
+dictionary:
+ account: debtor
+ address: port o' call
+ admin: helm
+ am: be
+ an: a
+ and: "n'"
+ are: be
+ beer: grog
+ before: afore
+ big: vast
+ boss: admiral
+ business: company
+ businesses: companies
+ calling: "callin'"
+ cheat: hornswaggle
+ comments: yer words
+ country: king
+ dashboard: shanty
+ disconnect: keelhaul
+ do: "d'"
+ employee: crew
+ everyone: all hands
+ eye: eye-patch
+ for: fer
+ friend: shipmate
+ girl: lass
+ girls: lassies
+ go: sail
+ good: jolly good
+ group: maties
+ hand: hook
+ hello: ahoy
+ hey: ahoy
+ home: shanty
+ "i'm": i be
+ invalid: sunk
+ is: be
+ "isn't": be not
+ kill: keelhaul
+ leg: peg
+ logout: walk the plank
+ manager: admiral
+ my: me
+ never: nary
+ no: nay
+ of: "o'"
+ over: "o'er"
+ page: parchment
+ person: scallywag
+ posted: tacked to the yardarm
+ quickly: smartly
+ really: verily
+ role: job
+ say: cry
+ shipping: cargo
+ small: puny
+ sorry: yarr
+ state: isle
+ supervisor: "Cap'n"
+ "that's": that be
+ the: tha
+ them: "'em"
+ this: dis
+ to: t'
+ we: our jolly crew
+ woman: wench
+ work: brig
+ yah: aye
+ yeah: aye
+ yes: aye
+ you: ye
+ "you're": you be
+ your: yer
+
+pirate_flavor:
+  - avast
+  - splice the mainbrace
+  - shiver me timbers
+  - ahoy
+  - arrrrr
+  - arrgh
+  - yo ho ho
+  - yarrr
+  - eh
+  - arrrghhh
+  - arrr
+  - ahoy matey
+  - prepare to be boarded
+  - hoist the mizzen
+  - blow me down
+  - swab the poop deck
+  - ye landlubber
+  - "bring \'er alongside"
+  - "hang \'im from the yardarm"
+  - blow the man down
+  - let go and haul
+  - heave to
+  - take no prisoners
+  - belay that
+  - me bucko
+  - "lock \'im in irons"
+  - "and a bottle \'o rum"
+  - and donae spare the whip
+  - pass the grog
+  - and swab the deck
+  - fire the cannon
+  - "sleep with t\' fishes"
