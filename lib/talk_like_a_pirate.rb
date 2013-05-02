@@ -73,4 +73,4 @@ private #####################################################################
 
 end
 
-require 'talk_like_a_pirate/railties'
+require 'talk_like_a_pirate/railties' if Object.const_defined? :Rails
