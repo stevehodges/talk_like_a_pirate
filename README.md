@@ -44,3 +44,7 @@ And format it like so (all keys are optional):
 Contributions
 =====
 Feel free to write specs, add to the standard dictionary, etc. Submit a pull request and we'll see what happens!
+
+Credits
+=====
+Copyright (c) 2013, developed and maintained by Steve Hodges, and is released under the open MIT Licence
