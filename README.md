@@ -41,6 +41,20 @@ And format it like so (all keys are optional):
     pirate_flavor:         # the flavoring occasionally added to the ends of sentences
       - "T' Davy Jones' locker wit ya"
 
+Using Ruby without Rails?
+----
+TalkLikeAPirate works great on Ruby (without Rails) as-is. 
+
+If you want more sophistication in your translations, you can add the Rails ActiveSupport gem for translating singular and plural versions of words. In your project, be sure to:
+
+    require "active_support"
+    require "active_support/inflector"
+
+And, due to dependency weirdness in ActiveSupport, you'll also need the i18n gem installed. So, in your Gemfile:
+
+    gem 'activesupport', '~> 3.0.0'
+    gem 'i18n'
+
 Contributions
 =====
 Feel free to write specs, add to the standard dictionary, etc. Submit a pull request and we'll see what happens!

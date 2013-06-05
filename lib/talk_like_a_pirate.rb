@@ -17,16 +17,16 @@ private #####################################################################
   def self.translate_string(me_string)
     me_string.split(/ /).map do |word|
       capitalized = (word.slice(0,1) == word.slice(0,1).upcase)
-      word = rails_present? ? piratize_with_pluralization(word) : piratize(word)
+      word = Object.const_defined?(:ActiveSupport) ? piratize_with_pluralization(word) : piratize(word)
       capitalized ? capitalize_first(word) : word
     end.join(" ")
   end
 
   def self.piratize_with_pluralization(word)
-    pluralized = word.pluralize == word
-    if dictionary.has_key?(word.downcase.singularize)
-      word = dictionary[word.downcase.singularize]
-      word = pluralized ? word.pluralize : word
+    pluralized = ActiveSupport::Inflector.pluralize(word) == word
+    if dictionary.has_key? ActiveSupport::Inflector.singularize(word.downcase)
+      word = dictionary[ActiveSupport::Inflector.singularize(word.downcase)]
+      word = pluralized ? ActiveSupport::Inflector.pluralize(word) : word
     end
     word
   end
@@ -77,10 +77,6 @@ private #####################################################################
     return string unless string.is_a? String
     return string.upcase if string.length < 2
     string.slice(0,1).capitalize + string.slice(1..-1)
-  end
-
-  def self.rails_present?
-    Object.const_defined? :Rails
   end
 
 end
