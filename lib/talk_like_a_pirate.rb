@@ -17,22 +17,46 @@ private #####################################################################
   def self.translate_string(me_string)
     me_string.split(/ /).map do |word|
       capitalized = (word.slice(0,1) == word.slice(0,1).upcase)
-      word = Object.const_defined?(:ActiveSupport) ? piratize_with_pluralization(word) : piratize(word)
-      capitalized ? capitalize_first(word) : word
+      fully_capitalized = (word == word.upcase)
+      word, punctuation = extract_punctuation word
+      word = Object.const_defined?(:ActiveSupport) ? piratize_with_pluralization(word.downcase) : piratize(word.downcase)
+      word = capitalize_first(word) if capitalized
+      word = word.upcase if fully_capitalized
+      word + punctuation
     end.join(" ")
   end
 
   def self.piratize_with_pluralization(word)
-    pluralized = ActiveSupport::Inflector.pluralize(word) == word
-    if dictionary.has_key? ActiveSupport::Inflector.singularize(word.downcase)
-      word = dictionary[ActiveSupport::Inflector.singularize(word.downcase)]
-      word = pluralized ? ActiveSupport::Inflector.pluralize(word) : word
+    pluralized = pluralize(word) == word
+    if dictionary.has_key? singularize(word)
+      word = dictionary[singularize(word)]
+      pluralized ? pluralize(word) : word
+    elsif word[/ing\Z/]
+      word.sub(/ing\Z/, "in'")
+    elsif word[/ings\Z/]
+      word.sub(/ings\Z/, "in's")
+    else
+      word
     end
-    word
   end
 
   def self.piratize(word)
-    dictionary.has_key?(word.downcase) ? dictionary[word.downcase] : word
+    if dictionary.has_key? word
+      dictionary[word]
+    elsif word[/ing\Z/]
+      word.sub(/ing\Z/, "in'")
+    elsif word[/ings\Z/]
+      word.sub(/ings\Z/, "in's")
+    else
+      word
+    end
+  end
+
+  def self.extract_punctuation(word)
+    parts = word.match(/\A([a-zA-Z\'\-]+)([^a-zA-Z\'\-]*)\Z/)
+    word = parts[1] rescue word
+    punctuation = parts[2] rescue ""
+    return word, punctuation
   end
 
   def self.prepare_original_sentence(sentence)
@@ -77,6 +101,14 @@ private #####################################################################
     return string unless string.is_a? String
     return string.upcase if string.length < 2
     string.slice(0,1).capitalize + string.slice(1..-1)
+  end
+
+  def self.singularize(word)
+    ActiveSupport::Inflector.singularize(word)
+  end
+
+  def self.pluralize(word)
+    ActiveSupport::Inflector.pluralize(word)
   end
 
 end

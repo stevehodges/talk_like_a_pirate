@@ -1,30 +1,43 @@
 locale: "arr"
 dictionary:
- account: debtor
  address: port o' call
  admin: helm
  am: be
  an: a
  and: "n'"
  are: be
+ award: prize
  beer: grog
  before: afore
+ belief: creed
+ between: betwixt
  big: vast
+ bring: bring
  boss: admiral
+ bourbon: rum
+ box: barrel
+ bring: bring
  business: company
  businesses: companies
  calling: "callin'"
+ cash: doubloons
  cheat: hornswaggle
  comments: yer words
- country: king
+ country: land
  dashboard: shanty
  disconnect: keelhaul
  do: "d'"
+ dollar: doubloon
+ dude: pirate
  employee: crew
  everyone: all hands
  eye: eye-patch
+ family: kin
+ fee: debt
+ female: wench
  for: fer
  friend: shipmate
+ gin: rum
  girl: lass
  girls: lassies
  go: sail
@@ -33,15 +46,22 @@ dictionary:
  hand: hook
  hello: ahoy
  hey: ahoy
- home: shanty
  "i'm": i be
  invalid: sunk
  is: be
+ island: isle
  "isn't": be not
+ jail: brig
  kill: keelhaul
+ king: king
  leg: peg
+ lady: lass
  logout: walk the plank
+ male: pirate
+ man: pirate
  manager: admiral
+ money: doubloons
+ month: moon
  my: me
  never: nary
  no: nay
@@ -50,28 +70,42 @@ dictionary:
  page: parchment
  person: scallywag
  posted: tacked to the yardarm
+ president: king
+ prison: brig
  quickly: smartly
  really: verily
+ relatives: kin
+ religion: creed
  role: job
  say: cry
+ seconds: ticks o' tha clock
  shipping: cargo
  small: puny
+ soldier: sailor
  sorry: yarr
- state: isle
+ spouse: ball 'n' chain
+ state: land
  supervisor: "Cap'n"
  "that's": that be
  the: tha
  them: "'em"
+ thing: thing
  this: dis
  to: t'
+ vodka: rum
  we: our jolly crew
+ wine: grog
+ whiskey: rum
+ whisky: rum
+ with: wit'
  woman: wench
- work: brig
+ work: duty
  yah: aye
  yeah: aye
  yes: aye
  you: ye
  "you're": you be
+ "you've": ye
  your: yer
 
 pirate_flavor:

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name        = 'talk_like_a_pirate'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.authors     = ['Steve Hodges']
   s.email       = ['sjhodges@gmail.com']
   s.homepage    = 'https://github.com/stevehodges/talk_like_a_pirate'
