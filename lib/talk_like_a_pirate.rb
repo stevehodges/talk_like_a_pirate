@@ -16,13 +16,16 @@ private #####################################################################
 
   def self.translate_string(me_string)
     me_string.split(/ /).map do |word|
+
+      leading_punctuation, word, trailing_punctuation = extract_punctuation word
       capitalized = (word.slice(0,1) == word.slice(0,1).upcase)
       fully_capitalized = (word == word.upcase)
-      word, punctuation = extract_punctuation word
+
       word = Object.const_defined?(:ActiveSupport) ? piratize_with_pluralization(word.downcase) : piratize(word.downcase)
+
       word = capitalize_first(word) if capitalized
       word = word.upcase if fully_capitalized
-      word + punctuation
+      "#{leading_punctuation}#{word}#{trailing_punctuation}"
     end.join(" ")
   end
 
@@ -53,10 +56,11 @@ private #####################################################################
   end
 
   def self.extract_punctuation(word)
-    parts = word.match(/\A([a-zA-Z\'\-]+)([^a-zA-Z\'\-]*)\Z/)
-    word = parts[1] rescue word
-    punctuation = parts[2] rescue ""
-    return word, punctuation
+    leading_punctuation = word.match(/\A([^a-zA-Z]*)/)[1] rescue ""
+    trailing_punctuation = word.match(/[a-zA-Z]+([^a-zA-Z]*)\Z/)[1] rescue ""
+    word_length = word.length - leading_punctuation.length - trailing_punctuation.length
+    word = word[leading_punctuation.length, word_length]
+    return leading_punctuation, word, trailing_punctuation
   end
 
   def self.prepare_original_sentence(sentence)
