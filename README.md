@@ -3,7 +3,9 @@ Ahoy, mateys!
 
 Delight yer users with the flavor of the high seas!
 
-Add a pirate translation layer to your Rails app! Talk, like a Pirate!
+Add a pirate translation layer to your Ruby or Rails app! Talk, like a Pirate!
+
+Try the gem out on [Ahoy Mat.ee](http://www.ahoymat.ee "Translate web pages into pirate"), which allows you to translate any page on the public internets.
 
 Translate English to Pirate on the fly!
 ----
