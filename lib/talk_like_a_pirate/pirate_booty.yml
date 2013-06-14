@@ -12,6 +12,7 @@ dictionary:
  belief: creed
  between: betwixt
  big: vast
+ boy: lad
  bring: bring
  boss: admiral
  bourbon: rum
@@ -20,6 +21,7 @@ dictionary:
  business: company
  businesses: companies
  calling: "callin'"
+ canada: "Great North"
  cash: doubloons
  cheat: hornswaggle
  comments: yer words
@@ -46,11 +48,14 @@ dictionary:
  hand: hook
  hello: ahoy
  hey: ahoy
+ hotel: inn
  "i'm": i be
+ internet: series o' tubes
  invalid: sunk
  is: be
  island: isle
  "isn't": be not
+ "it's": "'tis"
  jail: brig
  kill: keelhaul
  king: king
@@ -76,6 +81,7 @@ dictionary:
  really: verily
  relatives: kin
  religion: creed
+ ring: ring
  role: job
  say: cry
  seconds: ticks o' tha clock
@@ -94,6 +100,7 @@ dictionary:
  to: t'
  vodka: rum
  we: our jolly crew
+ "we're": "we's"
  wine: grog
  whiskey: rum
  whisky: rum
@@ -126,18 +133,18 @@ pirate_flavor:
   - blow me down
   - swab the poop deck
   - ye landlubber
-  - "bring \'er alongside"
-  - "hang \'im from the yardarm"
+  - "bring 'er alongside"
+  - "hang 'im from the yardarm"
   - blow the man down
   - let go and haul
   - heave to
   - take no prisoners
   - belay that
   - me bucko
-  - "lock \'im in irons"
-  - "and a bottle \'o rum"
+  - "lock 'im in irons"
+  - "and a bottle 'o rum"
   - and donae spare the whip
   - pass the grog
   - and swab the deck
   - fire the cannon
-  - "sleep with t\' fishes"
+  - "sleep with t' fishes"

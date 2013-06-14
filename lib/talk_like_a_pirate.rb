@@ -8,7 +8,7 @@ private #####################################################################
 
   def self.build_string(me_string)
     sentence = translate_string(me_string)
-    if sentence.split(" ").length > 5 && rand(5) == 0
+    if sentence.split(" ").length > 5 && sentence.match(/[!.?]\Z/) && rand(5) == 0
       sentence = prepare_original_sentence(sentence) + " " + build_piratey_sentence
     end
     sentence
@@ -34,19 +34,21 @@ private #####################################################################
     if dictionary.has_key? singularize(word)
       word = dictionary[singularize(word)]
       pluralized ? pluralize(word) : word
-    elsif word[/ing\Z/]
-      word.sub(/ing\Z/, "in'")
-    elsif word[/ings\Z/]
-      word.sub(/ings\Z/, "in's")
     else
-      word
+      translate_if_gerund word
     end
   end
 
   def self.piratize(word)
     if dictionary.has_key? word
       dictionary[word]
-    elsif word[/ing\Z/]
+    else
+      translate_if_gerund word
+    end
+  end
+
+  def self.translate_if_gerund(word)
+    if word[/ing\Z/]
       word.sub(/ing\Z/, "in'")
     elsif word[/ings\Z/]
       word.sub(/ings\Z/, "in's")
