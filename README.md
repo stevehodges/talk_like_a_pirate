@@ -25,7 +25,7 @@ It'll iterate through all of your en.yml files in that location and build a pira
 
 Config
 ----
-The pirate dictionary is fairly generic. You my have domain-specific lingo you think would be fucking hillarious in pirate. So, add on to the dictionary!
+The pirate dictionary is fairly generic. You may have domain-specific lingo you think would be fucking hillarious in pirate. So, add on to the dictionary!
 
 Add a config file at
 
