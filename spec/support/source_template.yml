@@ -1,0 +1,7 @@
+en:
+  house:
+    address: Address
+    country: Country
+  person:
+    employee: Employee
+    family:   family

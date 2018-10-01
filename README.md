@@ -28,7 +28,11 @@ Config
 ----
 The pirate dictionary is fairly generic. You may have domain-specific lingo you think would be hillarious in pirate. So, add on to the dictionary!
 
-Add a config file at
+You can generate a config file using the rake task:
+
+  rake pirate:initialize
+
+Or, add a config file at
 
   * Rails:
     config/pirate_booty.yml

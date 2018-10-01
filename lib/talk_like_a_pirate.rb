@@ -5,6 +5,14 @@ class TalkLikeAPirate
       me_string.is_a?(String) ? build_string(me_string) : me_string
     end
 
+    def pirate_locale
+      @@locale ||= local_config['locale'] || config['locale']
+    end
+
+    def on_rails?
+      Object.const_defined?(:Rails)
+    end
+
   private #####################################################################
 
     def build_string(me_string)
@@ -76,10 +84,6 @@ class TalkLikeAPirate
       capitalize_first(sprinklings_of_flavor.sample) + ["!!","!","."].sample
     end
 
-    def pirate_locale
-      @@locale ||= local_config.has_key?("locale") ? local_config["locale"] : config["locale"]
-    end
-
     def dictionary
       @@dictionary_map ||= config['dictionary'].merge(local_dictionary)
     end
@@ -90,7 +94,7 @@ class TalkLikeAPirate
 
     def config
       @@config ||= begin
-        gem_config_path = File.join File.dirname(__FILE__), 'talk_like_a_pirate', 'pirate_booty.yml'
+        gem_config_path = File.join File.dirname(__FILE__), 'config', 'pirate_booty.yml'
         YAML::load_file gem_config_path
       end
     end
@@ -105,8 +109,8 @@ class TalkLikeAPirate
 
     def local_config
       @@local_configs ||= begin
-        local_config_path = if Object.const_defined?(:Rails)
-          Rails.root.join('config', 'pirate_booty.yml')
+        local_config_path = if on_rails?
+          Rails.root.join 'config', 'pirate_booty.yml'
         else
           ENV['TALK_LIKE_A_PIRATE_CONFIG_PATH']
         end
@@ -134,8 +138,8 @@ class TalkLikeAPirate
   end
 end
 
-if Object.const_defined? :Rails
-  require 'talk_like_a_pirate/railties'
+if TalkLikeAPirate.on_rails?
+  require 'rails/railties'
 else
   require 'yaml'
 end

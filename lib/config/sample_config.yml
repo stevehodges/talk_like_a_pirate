@@ -1,0 +1,9 @@
+dictionary:
+  # Capitalization will be handled by talk_like_a_pirate.
+  computer:  voodoo
+  bill:      debt
+  policies:  creeds
+  inventory: treasure chest
+
+pirate_flavor: # the flavoring occasionally added to the ends of sentences
+  - "T' Davy Jones' locker wit ya"
