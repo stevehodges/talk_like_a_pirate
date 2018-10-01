@@ -1,0 +1,4 @@
+*.gemfile.lock
+gemfiles/*
+log
+*.gem

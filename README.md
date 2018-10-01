@@ -1,13 +1,14 @@
 Ahoy, mateys!
 =====
 
-Delight yer users with the flavor of the high seas!
+Translate English to Pirate on the fly! Delight yer users with the flavor of the high seas!
 
-Add a pirate translation layer to your Ruby or Rails app! Talk, like a Pirate!
+Plus, add a pirate translation layer to your Ruby or Rails app! Talk, like a Pirate!
 
-Try the gem out on [Ahoy Mat.ee](http://www.ahoymat.ee "Translate web pages into pirate"), which allows you to translate any page on the public internets.
+This gem has been functional tested against a public domain version of The Bible (which may or may not be available as an e-book on Amazon.com...)
 
-Translate English to Pirate on the fly!
+[![Gem Version](https://badge.fury.io/rb/talk_like_a_pirate.svg)](https://badge.fury.io/rb/talk_like_a_pirate)
+
 ----
 
     TalkLikeAPirate.translate("Today is a good day to die")
@@ -25,11 +26,15 @@ It'll iterate through all of your en.yml files in that location and build a pira
 
 Config
 ----
-The pirate dictionary is fairly generic. You may have domain-specific lingo you think would be fucking hillarious in pirate. So, add on to the dictionary!
+The pirate dictionary is fairly generic. You may have domain-specific lingo you think would be hillarious in pirate. So, add on to the dictionary!
 
 Add a config file at
 
+  * Rails:
     config/pirate_booty.yml
+
+  * Without Rails
+    Specify the path to your YAML file in ENV['TALK_LIKE_A_PIRATE_CONFIG_PATH']
 
 And format it like so (all keys are optional):
 
@@ -52,14 +57,23 @@ If you want more sophistication in your translations, you can add the Rails Acti
     require "active_support"
     require "active_support/inflector"
 
-And, due to dependency weirdness in ActiveSupport, you'll also need the i18n gem installed. So, in your Gemfile:
-
-    gem 'activesupport', '~> 3.0.0'
-    gem 'i18n'
-
 Contributions
 =====
 Feel free to write specs, add to the standard dictionary, etc. Submit a pull request and we'll see what happens!
+
+Tests
+=====
+
+To test the gem against the current version of ActiveSupport (in [Gemfile.lock](Gemfile.lock)):
+
+1. `bundle install`
+2. `bundle exec rspec`
+
+Or, you can run tests for all supported Rails versions
+
+1. `gem install appraisal`
+1. `bundle exec appraisal install` *(this Generates gemfiles for all permutations of our dependencies, so you'll see lots of bundler output))*
+1. `bundle exec appraisal rspec`. *(This runs rspec for each dependency permutation. If one fails, appraisal exits immediately and does not test permutations it hasn't gotten to yet. Tests are not considered passing until all permutations are passing)*
 
 Credits
 =====
