@@ -1,17 +1,22 @@
 # -*- encoding: utf-8 -*-
-Gem::Specification.new do |s|
-  s.name         = 'talk_like_a_pirate'
-  s.version      = '0.1.0'
-  s.authors      = ['Steve Hodges']
-  s.email         = ['shodges317@gmail.com']
-  s.homepage  = 'https://github.com/stevehodges/talk_like_a_pirate'
-  s.summary    = 'Talk Like A Pirate'
-  s.description = 'Add a pirate translation layer to your Rails app! Talk, like a Pirate!'
+Gem::Specification.new do |spec|
+  spec.name         = 'talk_like_a_pirate'
+  spec.version      = '0.2.0'
+  spec.authors      = ['Steve Hodges']
+  spec.email        = ['shodges317@gmail.com']
+  spec.homepage     = 'https://github.com/stevehodges/talk_like_a_pirate'
+  spec.summary      = 'Talk Like A Pirate'
+  spec.description  = 'Add a pirate translation layer to your Rails app! Talk, like a Pirate!'
 
-  s.files           = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {spec}/*`.split("\n")
+  spec.files        = `git ls-files`.split("\n")
+  spec.test_files   = `git ls-files -- {spec}/*`.split("\n")
 
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.require_paths = ['lib']
+  spec.add_dependency 'activesupport', '>= 3.0.0', '< 6.0.0'
+  spec.add_dependency 'i18n'
+
+  spec.add_development_dependency 'appraisal', '~> 2.2'
+  spec.add_development_dependency 'bundler',   '~> 1.9'
+  spec.add_development_dependency 'rake',      '~> 10.0'
+  spec.add_development_dependency 'rspec',     '~> 3'
+  spec.require_paths = ['lib']
 end

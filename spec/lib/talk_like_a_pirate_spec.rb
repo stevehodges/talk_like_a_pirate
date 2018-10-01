@@ -1,57 +1,61 @@
 require 'talk_like_a_pirate'
 
-describe TalkLikeAPirate do
+# TODO: Test Rails integration/railties/rake task
 
-  it "should make a word piratey" do
-    TalkLikeAPirate.translate('between').should == "betwixt"
+describe TalkLikeAPirate do
+  def execute(string)
+    TalkLikeAPirate.translate(string)
+  end
+
+  it "makes a word piratey" do
+    expect(execute('between')).to eq "betwixt"
   end
 
   it "shouldn't translate plural words without ActiveSupport" do
-    TalkLikeAPirate.translate("islands").should == 'islands'
+    expect(execute("islands")).to eq 'islands'
   end
 
-  it "should make gerunds piratey" do
-    TalkLikeAPirate.translate('having').should == "havin'"
+  it "makes gerunds piratey" do
+    expect(execute('having')).to eq "havin'"
   end
 
-  it "should make plural gerunds piratey" do
-    TalkLikeAPirate.translate('havings').should == "havin's"
+  it "makes plural gerunds piratey" do
+    expect(execute('havings')).to eq "havin's"
   end
 
-  it "should properly capitalize single words" do
-    TalkLikeAPirate.translate('Boss').should == "Admiral"
+  it "properly capitalizes single words" do
+    expect(execute('Boss')).to eq "Admiral"
   end
 
-  it "should properly capitalize all caps words" do
-    TalkLikeAPirate.translate('BOSS').should == "ADMIRAL"
-    TalkLikeAPirate.translate('BOSS!!!!').should == "ADMIRAL!!!!"
+  it "properly capitalizes all caps words" do
+    expect(execute('BOSS')).to eq "ADMIRAL"
+    expect(execute('BOSS!!!!')).to eq "ADMIRAL!!!!"
   end
 
-  it "should properly capitalize phrases" do
-    TalkLikeAPirate.translate('Bourbon Country').should == "Rum Land"
-    TalkLikeAPirate.translate('Bourbon country').should == "Rum land"
+  it "properly capitalizes phrases" do
+    expect(execute('Bourbon Country')).to eq "Rum Land"
+    expect(execute('Bourbon country')).to eq "Rum land"
   end
 
-  it "should properly translate words with trailing punctuation" do
-    TalkLikeAPirate.translate('man!!!').should == "pirate!!!"
-    TalkLikeAPirate.translate('man!?!?!?!').should == "pirate!?!?!?!"
+  it "properly translates words with trailing punctuation" do
+    expect(execute('man!!!')).to eq "pirate!!!"
+    expect(execute('man!?!?!?!')).to eq "pirate!?!?!?!"
   end
 
-  it "should properly translate plural gerunds with trailing punctuation" do
-    TalkLikeAPirate.translate('belongings!').should == "belongin's!"
+  it "properly translates plural gerunds with trailing punctuation" do
+    expect(execute('belongings!')).to eq "belongin's!"
   end
 
-  it "should properly punctuate and translate words with leading and punctuation" do
-    TalkLikeAPirate.translate('"The boss said kill."').should == '"Tha admiral said keelhaul."'
-    TalkLikeAPirate.translate('"The boss said to kill the dude!"').split(" ")[0..6].join(" ").should == '"Tha admiral said t\' keelhaul tha pirate!"'
+  it "properly punctuates and translates words with leading and punctuation" do
+    expect(execute('"The boss said kill."')).to eq '"Tha admiral said keelhaul."'
+    expect(execute('"The boss said to kill the dude!"')).to eq '"Tha admiral said t\' keelhaul tha pirate!"'
   end
 
-  it "should translate plural words when ActiveSupport's available" do
+  it "translates plural words when ActiveSupport's available" do
     require "active_support"
     require "active_support/inflector"
 
-    TalkLikeAPirate.translate("islands").should == 'isles'
-    TalkLikeAPirate.translate("men").should == 'pirates'
+    expect(execute("islands")).to eq 'isles'
+    expect(execute("men")).to eq 'pirates'
   end
-
 end
