@@ -81,4 +81,4 @@ Or, you can run tests for all supported Rails versions
 
 Credits
 =====
-Copyright (c) 2013, developed and maintained by Steve Hodges, and is released under the open MIT Licence
+Copyright (c) 2013, developed and maintained by Cap'n Steve Hodges, and is released under the open MIT Licence
