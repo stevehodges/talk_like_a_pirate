@@ -22,7 +22,7 @@ GEM
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     minitest (5.15.0)
-    rake (10.5.0)
+    rake (12.3.3)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -46,7 +46,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal (~> 2.2)
   bundler (~> 1.9)
-  rake (~> 10.0)
+  rake (~> 12.3)
   rspec (~> 3)
   talk_like_a_pirate!
 
